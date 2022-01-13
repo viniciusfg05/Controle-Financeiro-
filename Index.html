@@ -1,63 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt_BR">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dev.Finance $</title>
+    <title>Controle Financeiro $</title>
   </head>
-  <body>
-    <header><h1>Controle Financeiro</h1></header>
 
-    <main>
-      <section>
+  <link rel="stylesheet" href="./styles.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300&display=swap"
+    rel="stylesheet"
+  />
+  <body>
+    <header id="header">
+      <h1 id="logo">Controle Financeiro</h1>
+    </header>
+
+    <main class="container">
+      <section id="balance">
         <h2>Balanço</h2>
 
-        <div>
+        <div class="card">
           <h3>Entradas</h3>
           <p>R$ 5.000,00</p>
         </div>
 
-        <div>
+        <div class="card">
           <h3>Saídas</h3>
           <p>R$ 1.000,00</p>
         </div>
 
-        <div>
+        <div class="card total">
           <h3>Total</h3>
           <p>R$ 4.000,00</p>
         </div>
       </section>
-      <section></section>
 
-      <h2>Transações</h2>
-
-      <table>
-        <thead>
-          <tr>
-            <th>Descrição</th>
-            <th>Valor</th>
-            <th>data</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Luz</td>
-            <td>R$ -500,00</td>
-            <td>23/01/2022</td>
-          </tr>
-          <tr>
-            <td>Aluguel</td>
-            <td>R$ 1.200,00</td>
-            <td>23/01/2022</td>
-          </tr>
-          <tr>
-            <td>Criação de site</td>
-            <td>R$ 5000,00</td>
-            <td>23/01/2022</td>
-          </tr>
-        </tbody>
-      </table>
+      <section id="transation">
+        <h2>Transações</h2>
+        <table id="data-table">
+          <thead>
+            <tr>
+              <th>Descrição</th>
+              <th>Valor</th>
+              <th>data</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="description">Luz</td>
+              <td class="expense">R$ -500,00</td>
+              <td class="date">23/01/2022</td>
+            </tr>
+            <tr>
+              <td class="description">Aluguel</td>
+              <td class="expense">-R$ 1.200,00</td>
+              <td class="date">23/01/2022</td>
+            </tr>
+            <tr>
+              <td class="description">Criação de site</td>
+              <td class="income">R$ 5.000,00</td>
+              <td class="date">23/01/2022</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
     </main>
+
+    <footer>
+      <p>$ Controle Financeiro $</p>
+    </footer>
   </body>
 </html>
