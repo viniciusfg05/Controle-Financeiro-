@@ -25,7 +25,7 @@ h2 {
 }
 /* ---------Header--------- */
 body {
-  background-color: rgb(240, 240, 240);
+  background-color: rgb(239, 239, 239);
   font-family: 'Poppins' sans-serif;
 }
 
@@ -51,7 +51,6 @@ body {
 #balance {
   margin-bottom: 2rem;
   margin-top: -5rem;
-  display: flex;
 }
 
 #balance h2 {
@@ -106,12 +105,11 @@ a {
   border-radius: 0.5rem;
   padding: 1.5rem 2rem;
   color: var(--dark-blue);
-  flex: 1;
 }
 
-.card:nth-child(3) {
+/* .card:nth-child(3) {
   margin: 0 1rem 0 1rem;
-}
+} */
 .card h3 {
   font-weight: normal;
   font-size: 1rem;
@@ -139,8 +137,13 @@ a {
   color: #969cb3;
 }
 
+.lixeira {
+  display: flex;
+  width: 2rem;
+}
+
 table th {
-  background: white;
+  background: rgb(195, 230, 188);
   font-weight: 400;
   padding: 1rem 2rem;
   text-align: left;
@@ -150,7 +153,7 @@ table th {
 }
 
 table td {
-  background-color: white;
+  background-color: rgb(238, 255, 235);
   padding: 1rem 2rem;
 }
 
@@ -211,3 +214,111 @@ footer p:hover {
 }
 
 /* ---------Responsive--------- */
+@media (max-width: 375px) {
+  * {
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 0.8rem;
+    font-weight: 100;
+  }
+
+  #balance {
+    margin-top: -3rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+    /* display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem; */
+  }
+
+  h3 span {
+    padding: 0.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: rgb(0, 70, 70);
+  }
+
+  h3 .img {
+    font-size: 0.2rem;
+    width: 20%;
+    margin-right: 0.5rem;
+  }
+
+  .card:nth-child(3) {
+    margin: 0 0.5rem 0 0.5rem;
+  }
+
+  .card {
+    padding: 0.1rem;
+  }
+
+  .card p {
+    font-size: 1.1rem;
+    line-height: 1rem;
+    padding: 0.5rem;
+  }
+
+  main {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  #header img {
+    width: 12rem;
+  }
+
+  .container {
+    margin: 0 1rem;
+  }
+
+  /* TABELAAA */
+
+  #data-table {
+    display: block;
+    width: 100%;
+
+    overflow-y: auto;
+  }
+
+  td.description {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--h2-dark-blue);
+    font-family: var(--Poppins);
+  }
+
+  .table-header {
+    padding: 0;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  table td {
+    box-sizing: border-box;
+    padding: 0.7rem;
+  }
+
+  table td img {
+    width: 1rem;
+    padding: 0;
+  }
+
+  .lixeira {
+    width: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .table-header {
+    text-align: center;
+  }
+  .table-header.value {
+    padding: 0.5rem 2rem;
+  }
+
+  .button.new {
+    width: 8rem;
+  }
+}
