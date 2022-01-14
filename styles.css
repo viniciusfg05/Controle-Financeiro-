@@ -15,6 +15,10 @@
   --Poppins: 'Poppins', sans-serif;
 }
 
+html {
+  font-size: 93.75%; /* 15px */
+}
+
 h2 {
   margin-bottom: 2rem;
   color: var(--h2-dark-blue);
@@ -22,25 +26,32 @@ h2 {
 /* ---------Header--------- */
 body {
   background-color: rgb(240, 240, 240);
+  font-family: 'Poppins' sans-serif;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 #header {
   background-color: rgb(49, 123, 133);
   padding: 2rem 0 6rem;
-}
-
-#logo {
-  color: rgb(255, 255, 255);
-  font-family: 'Poppins', sans-serif;
   text-align: center;
-  font-size: 2rem;
-  font-weight: 200;
-  margin-bottom: 1rem;
 }
 
 /* ---------Balance--------- */
 #balance {
   margin-bottom: 2rem;
+  margin-top: -5rem;
+  display: flex;
 }
 
 #balance h2 {
@@ -53,6 +64,40 @@ body {
   width: min(90vw, 800px);
   margin: auto;
 }
+/* ---------Links e Bottoes--------- */
+
+a {
+  text-decoration: none;
+  transition: 0.3s;
+  font-family: 'Mochiy Pop P One', sans-serif;
+  font-weight: 400;
+  color: rgb(36, 36, 36);
+  font-size: 0.7rem;
+}
+
+*/ button {
+  padding: 0.5rem;
+  display: flex;
+  margin: 0;
+  text-align: center;
+  background-color: rgb(49, 123, 133);
+}
+
+.button.new {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #3dd785;
+  border-width: 1px;
+  border-color: cadetblue;
+  border-style: solid;
+  transition: 0.3s;
+}
+
+.button.new:hover {
+  background-color: #30a767;
+}
 
 /* ---------Cards--------- */
 
@@ -61,12 +106,19 @@ body {
   border-radius: 0.5rem;
   padding: 1.5rem 2rem;
   color: var(--dark-blue);
-  margin: 1rem;
+  flex: 1;
 }
 
+.card:nth-child(3) {
+  margin: 0 1rem 0 1rem;
+}
 .card h3 {
   font-weight: normal;
   font-size: 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .card p {
@@ -80,9 +132,6 @@ body {
 }
 
 /* ---------Table--------- */
-
-#transaction {
-}
 
 #data-table {
   width: 100%;
@@ -114,7 +163,14 @@ table tbody tr:hover {
 
 table thead tr th:first-child,
 table tbody tr td:first-child {
+  /*Add a borda arrendonada no Inicio da tabela*/
   border-radius: 0.5rem 0 0 0.5rem;
+}
+
+table thead tr th:last-child,
+table tbody tr td:last-child {
+  /*Add a borda arrendonada no fim da tabela*/
+  border-radius: 0 0.5rem 0.5rem 0;
 }
 
 td.description {
@@ -127,6 +183,10 @@ td.income {
 
 td.expense {
   color: rgb(255, 68, 68);
+}
+
+td.img {
+  text-align: center;
 }
 /* ---------Footer--------- */
 footer {
@@ -149,3 +209,5 @@ footer p {
 footer p:hover {
   opacity: 1;
 }
+
+/* ---------Responsive--------- */
