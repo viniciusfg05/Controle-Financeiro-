@@ -40,12 +40,12 @@ body {
 
 /* ---------Balance--------- */
 #balance {
+  margin-top: -5rem;
   margin-bottom: 2rem;
+  display: flex;
 }
 
 #balance h2 {
-  margin: -6rem 0;
-  margin-bottom: 0.5rem;
   color: var(--h2);
 }
 
@@ -56,12 +56,13 @@ body {
 
 /* ---------Cards--------- */
 
-.card {
+/* .card {
   background: white;
   border-radius: 0.5rem;
   padding: 1.5rem 2rem;
   color: var(--dark-blue);
   margin: 1rem;
+  flex: 1;
 }
 
 .card h3 {
@@ -77,17 +78,18 @@ body {
 .card.total {
   background: #49aa26;
   color: white;
-}
+} */
 
 /* ---------Table--------- */
 
-#transaction {
+#transation {
 }
 
 #data-table {
   width: 100%;
   border-spacing: 0 0.5rem; /*para tirar as bordas da tabela*/
   color: #969cb3;
+  overflow: auto;
 }
 
 table th {
@@ -129,11 +131,11 @@ td.expense {
   color: rgb(255, 68, 68);
 }
 /* ---------Footer--------- */
-footer {
-  margin-top: 5rem;
+#footer {
   background-color: rgb(141, 168, 172);
-  height: 6rem;
-  width: 100vw;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
 }
 
 footer p {
