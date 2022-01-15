@@ -1,0 +1,324 @@
+/* @font-family: 'Mochiy Pop P One', sans-serif;
+@font-family: 'Poppins', sans-serif; */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* contagem da caixa a partir da borda */
+}
+
+:root {
+  --dark-blue: #363f5f;
+  --h2: rgb(248, 232, 203);
+  --h2-dark-blue: rgb(0, 70, 70);
+
+  --Poppins: 'Poppins', sans-serif;
+}
+
+html {
+  font-size: 93.75%; /* 15px */
+}
+
+h2 {
+  margin-bottom: 2rem;
+  color: var(--h2-dark-blue);
+}
+/* ---------Header--------- */
+body {
+  background-color: rgb(239, 239, 239);
+  font-family: 'Poppins' sans-serif;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+#header {
+  background-color: rgb(49, 123, 133);
+  padding: 2rem 0 6rem;
+  text-align: center;
+}
+
+/* ---------Balance--------- */
+#balance {
+  margin-bottom: 2rem;
+  margin-top: -5rem;
+}
+
+#balance h2 {
+  margin: -6rem 0;
+  margin-bottom: 0.5rem;
+  color: var(--h2);
+}
+
+.container {
+  width: min(90vw, 800px);
+  margin: auto;
+}
+/* ---------Links e Bottoes--------- */
+
+a {
+  text-decoration: none;
+  transition: 0.3s;
+  font-family: 'Mochiy Pop P One', sans-serif;
+  font-weight: 400;
+  color: rgb(36, 36, 36);
+  font-size: 0.7rem;
+}
+
+*/ button {
+  padding: 0.5rem;
+  display: flex;
+  margin: 0;
+  text-align: center;
+  background-color: rgb(49, 123, 133);
+}
+
+.button.new {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #3dd785;
+  border-width: 1px;
+  border-color: cadetblue;
+  border-style: solid;
+  transition: 0.3s;
+}
+
+.button.new:hover {
+  background-color: #30a767;
+}
+
+/* ---------Cards--------- */
+
+.card {
+  background: white;
+  border-radius: 0.5rem;
+  padding: 1.5rem 2rem;
+  color: var(--dark-blue);
+}
+
+/* .card:nth-child(3) {
+  margin: 0 1rem 0 1rem;
+} */
+.card h3 {
+  font-weight: normal;
+  font-size: 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card p {
+  font-size: 1.5rem;
+  line-height: 3rem;
+}
+
+.card.total {
+  background: #49aa26;
+  color: white;
+}
+
+/* ---------Table--------- */
+
+#data-table {
+  width: 100%;
+  border-spacing: 0 0.5rem; /*para tirar as bordas da tabela*/
+  color: #969cb3;
+}
+
+.lixeira {
+  display: flex;
+  width: 2rem;
+}
+
+table th {
+  background: rgb(195, 230, 188);
+  font-weight: 400;
+  padding: 1rem 2rem;
+  text-align: left;
+  color: var(--h2-dark-blue);
+  font-family: var(--Poppins);
+  font-size: 1.1rem;
+}
+
+table td {
+  background-color: rgb(238, 255, 235);
+  padding: 1rem 2rem;
+}
+
+table tbody tr {
+  opacity: 0.7;
+}
+table tbody tr:hover {
+  opacity: 1;
+}
+
+table thead tr th:first-child,
+table tbody tr td:first-child {
+  /*Add a borda arrendonada no Inicio da tabela*/
+  border-radius: 0.5rem 0 0 0.5rem;
+}
+
+table thead tr th:last-child,
+table tbody tr td:last-child {
+  /*Add a borda arrendonada no fim da tabela*/
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+td.description {
+  color: var(--dark-blue);
+}
+
+td.income {
+  color: #12a454;
+}
+
+td.expense {
+  color: rgb(255, 68, 68);
+}
+
+td.img {
+  text-align: center;
+}
+/* ---------Footer--------- */
+footer {
+  margin-top: 5rem;
+  background-color: rgb(141, 168, 172);
+  height: 6rem;
+  width: 100vw;
+}
+
+footer p {
+  text-align: center;
+  color: var(--h2-dark-blue);
+  padding-top: 2.5rem;
+  font-family: var(--Poppins);
+  font-weight: 700;
+  font-size: 1.2rem;
+  opacity: 0.7;
+}
+
+footer p:hover {
+  opacity: 1;
+}
+
+/* ---------Responsive--------- */
+@media (max-width: 375px) {
+  * {
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 0.8rem;
+    font-weight: 100;
+  }
+
+  #balance {
+    margin-top: -3rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+    /* display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem; */
+  }
+
+  h3 span {
+    padding: 0.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: rgb(0, 70, 70);
+  }
+
+  h3 .img {
+    font-size: 0.2rem;
+    width: 20%;
+    margin-right: 0.5rem;
+  }
+
+  .card:nth-child(3) {
+    margin: 0 0.5rem 0 0.5rem;
+  }
+
+  .card {
+    padding: 0.1rem;
+  }
+
+  .card p {
+    font-size: 1.1rem;
+    line-height: 1rem;
+    padding: 0.5rem;
+  }
+
+  main {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  #header img {
+    width: 12rem;
+  }
+
+  .container {
+    margin: 0 1rem;
+  }
+
+  /* TABELAAA */
+
+  #data-table {
+    display: block;
+    width: 100%;
+
+    overflow-y: auto;
+  }
+
+  td.description {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--h2-dark-blue);
+    font-family: var(--Poppins);
+  }
+
+  .table-header {
+    padding: 0;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  table td {
+    box-sizing: border-box;
+    padding: 0.7rem;
+  }
+
+  table td img {
+    width: 1rem;
+    padding: 0;
+  }
+
+  .lixeira {
+    width: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .table-header {
+    text-align: center;
+  }
+  .table-header.value {
+    padding: 0.5rem 2rem;
+  }
+
+  .button.new {
+    width: 8rem;
+  }
+}

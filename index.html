@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Controle Financeiro $</title>
+  </head>
+
+  <link rel="stylesheet" href="./styles.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300&display=swap"
+    rel="stylesheet"
+  />
+  <body>
+    <header id="header">
+      <img src="./assets/assets/logo.svg" alt="Logo marca" />
+    </header>
+
+    <main class="container">
+      <section id="balance">
+        <h2 class="sr-only">Balanço</h2>
+
+        <div class="card">
+          <h3>
+            <span>Entradas</span>
+            <img
+              class="img"
+              src="/assets/assets/income.svg"
+              alt="Imagem de entrada de valores"
+            />
+          </h3>
+          <p>R$ 5.000,00</p>
+        </div>
+
+        <div class="card">
+          <h3>
+            <span>Saídas</span>
+            <img
+              class="img"
+              src="./assets//assets/expense.svg"
+              alt="Imagem de saída de valores"
+            />
+          </h3>
+          <p>R$ 1.000,00</p>
+        </div>
+
+        <div class="card total">
+          <h3>
+            <span>Total</span>
+            <img
+              class="img"
+              src="./assets/assets/total.svg"
+              alt="Imagem de total"
+            />
+          </h3>
+          <p>R$ 4.000,00</p>
+        </div>
+      </section>
+
+      <section id="transation">
+        <h2 class="sr-only">Transações</h2>
+
+        <button class="button new">
+          <a href="#">Nova Transação</a>
+        </button>
+        <table id="data-table">
+          <thead>
+            <tr>
+              <th class="table-header">Descrição</th>
+              <th class="table-header value">Valor</th>
+              <th class="table-header">data</th>
+              <th class="table-header">
+                <img
+                  class="lixeira"
+                  src="./assets/assets/lixeira.svg"
+                  alt="Deletar"
+                />
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="description">Luz</td>
+              <td class="expense">R$ -500,00</td>
+              <td class="date">23/01/2022</td>
+              <td class="img">
+                <img src="./assets/assets/minus.svg" alt="" />
+              </td>
+            </tr>
+            <tr>
+              <td class="description">Aluguel</td>
+              <td class="expense">-R$ 1.200,00</td>
+              <td class="date">23/01/2022</td>
+              <td class="img">
+                <img src="./assets/assets/minus.svg" alt="" />
+              </td>
+            </tr>
+            <tr>
+              <td class="description">Criação de site</td>
+              <td class="income">R$ 5.000,00</td>
+              <td class="date">23/01/2022</td>
+              <td class="img">
+                <img src="./assets/assets/minus.svg" alt="" />
+              </td>
+            </tr>
+            <tr>
+              <td class="description">Luz</td>
+              <td class="expense">R$ -500,00</td>
+              <td class="date">23/01/2022</td>
+              <td class="img">
+                <img src="./assets/assets/minus.svg" alt="" />
+              </td>
+            </tr>
+            <tr>
+              <td class="description">Aluguel</td>
+              <td class="expense">-R$ 1.200,00</td>
+              <td class="date">23/01/2022</td>
+              <td class="img">
+                <img src="./assets/assets/minus.svg" alt="" />
+              </td>
+            </tr>
+            <tr>
+              <td class="description">Criação de site</td>
+              <td class="income">R$ 5.000,00</td>
+              <td class="date">23/01/2022</td>
+              <td class="img">
+                <img src="./assets/assets/minus.svg" alt="" />
+              </td>
+            </tr>
+            <tr>
+              <td class="description">Luz</td>
+              <td class="expense">R$ -500,00</td>
+              <td class="date">23/01/2022</td>
+              <td class="img">
+                <img src="./assets/assets/minus.svg" alt="" />
+              </td>
+            </tr>
+            <tr>
+              <td class="description">Aluguel</td>
+              <td class="expense">-R$ 1.200,00</td>
+              <td class="date">23/01/2022</td>
+              <td class="img">
+                <img src="./assets/assets/minus.svg" alt="" />
+              </td>
+            </tr>
+            <tr>
+              <td class="description">Criação de site</td>
+              <td class="income">R$ 5.000,00</td>
+              <td class="date">23/01/2022</td>
+              <td class="img">
+                <img src="./assets/assets/minus.svg" alt="" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <footer>
+      <p>$ Controle Financeiro $</p>
+    </footer>
+  </body>
+</html>
