@@ -214,7 +214,7 @@ footer p:hover {
 }
 
 /* ---------Responsive--------- */
-@media (max-width: 375px) {
+@media (max-width: 600px) {
   * {
     width: 100%;
     box-sizing: border-box;
