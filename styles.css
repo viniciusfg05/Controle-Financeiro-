@@ -177,6 +177,11 @@ table tbody tr:hover {
   text-align: center;
 }
 
+.table-header.value {
+  background-color: red;
+  padding: 0;
+}
+
 table thead tr th:first-child,
 table tbody tr td:first-child {
   /*Add a borda arrendonada no Inicio da tabela*/
