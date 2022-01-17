@@ -77,13 +77,13 @@ a {
   font-size: 0.7rem;
 }
 
-*/ button {
+/* button {
   padding: 0.5rem;
   display: flex;
   margin: 0;
   text-align: center;
   background-color: rgb(49, 123, 133);
-}
+} */
 
 .button.new {
   display: inline-block;
@@ -95,10 +95,44 @@ a {
   border-color: cadetblue;
   border-style: solid;
   transition: 0.3s;
+  border: none;
+
+  text-align: center;
+
+  font-family: 'Mochiy Pop P One', sans-serif;
+  font-weight: 400;
+  color: rgb(36, 36, 36);
+  font-size: 0.7rem;
+
+  cursor: pointer;
 }
 
 .button.new:hover {
-  background-color: #30a767;
+  background-color: #62ffab;
+}
+
+.button.cancel {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #d73d3d;
+  border-width: 1px;
+  border-color: cadetblue;
+  border-style: solid;
+  transition: 0.3s;
+  border: none;
+
+  text-align: center;
+
+  font-family: 'Mochiy Pop P One', sans-serif;
+  font-weight: 400;
+  color: rgb(36, 36, 36);
+  font-size: 0.7rem;
+}
+
+.button.cancel:hover {
+  background-color: #ce5858;
 }
 
 /* ---------Cards--------- */
@@ -210,6 +244,69 @@ td.date {
 td.img {
   text-align: center;
 }
+/* ---------Modal--------- */
+.modal-overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal {
+  background: #f0f2f5;
+  padding: 2.4rem;
+}
+
+/* ---------Form do modal--------- */
+#form {
+  max-width: 500px;
+}
+
+#form h2 {
+  margin-top: 0;
+}
+
+input {
+  border: none;
+  border-radius: 0.2rem;
+
+  padding: 0.8rem;
+
+  width: 100%;
+}
+
+.input-group {
+  margin-top: 0.8rem;
+}
+
+small.help {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.input-group.actions {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.input-group.actions .button,
+.input-group.actions button {
+  width: 30%;
+}
+
 /* ---------Footer--------- */
 footer {
   margin-top: 5rem;
