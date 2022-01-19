@@ -33,7 +33,7 @@
               alt="Imagem de entrada de valores"
             />
           </h3>
-          <p>R$ 5.000,00</p>
+          <p id="incomeDisplay" >R$ 5.000,00</p>
         </div>
 
         <div class="card">
@@ -45,7 +45,7 @@
               alt="Imagem de saída de valores"
             />
           </h3>
-          <p>R$ 1.000,00</p>
+          <p id="expenseDisplay">R$ 1.000,00</p>
         </div>
 
         <div class="card total">
@@ -53,7 +53,7 @@
             <span>Total</span>
             <img class="img" src="./assets/total.svg" alt="Imagem de total" />
           </h3>
-          <p>R$ 4.000,00</p>
+          <p id="totalDisplay">R$ 4.000,00</p>
         </div>
       </section>
 
@@ -76,30 +76,7 @@
             </tr>
           </thead>
           <tbody>      
-            <tr>
-              <td class="description">Luz</td>
-              <td class="expense">R$ -500,00</td>
-              <td class="date">23/01/2022</td>
-              <td class="img">
-                <img src="./assets/minus.svg" alt="" />
-              </td>
-            </tr>
-            <tr>
-              <td class="description">Aluguel</td>
-              <td class="expense">-R$ 1.200,00</td>
-              <td class="date">23/01/2022</td>
-              <td class="img">
-                <img src="./assets/minus.svg" alt="" />
-              </td>
-            </tr>
-            <tr>
-              <td class="description">Criação de site</td>
-              <td class="income">R$ 5.000,00</td>
-              <td class="date">23/01/2022</td>
-              <td class="img">
-                <img src="./assets/minus.svg" alt="" />
-              </td>
-            </tr>
+             
           </tbody>
         </table>
       </section>
@@ -109,7 +86,7 @@
       <div class="modal">
          <div id="form">
            <h2>Nova Transação</h2>
-           <form action=""> 
+           <form action="" onsubmit="Form.submit(event)" > 
             <div class="input-group">
               <label class="sr-only" for="Descrição">Description</label>
               <input type="text" id="description" name="description" value="" placeholder="Descrição "> 
