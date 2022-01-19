@@ -46,20 +46,28 @@ const Transaction = {
 
 //Para trocar os dados do html
 const DOM = {
-  addTransaction(Transaction, index) {
+  addTransaction(transaction, index) {
+    //transaction, é a const na linha 13 // index, é o nome do arquivo  que ta o HTML
     //local do documento que vai add
     const tr = document.createElement('tr') //criando um elemento "tr"
-    tr.innerHTML = DOM.innerHTMLTransaction() //"tr.innerHTML" para receber o HTML "innerHTMLTransaction()"
+    tr.innerHTML = DOM.innerHTMLTransaction(transaction) //"tr.innerHTML" para receber o HTML "innerHTMLTransaction() e "innerHTMLTransaction(transaction)" recebe transaction tb
+
+    console.log(tr.innerHTML)
   },
-  innerHTMLTransaction() {
+
+  innerHTMLTransaction(transaction) {
     const html = `
-     <td class="description">Luz</td>
-     <td class="expense">R$ -500,00</td>
-     <td class="date">23/01/2022</td>
-     <td class="img">
-       <img src="./assets/minus.svg" alt="Remover transação" />
-     </td>
-  `
+    <td class="description">${transaction.description}</td>
+    <td class="expense">${transaction.amount}</td>
+    <td class="date">${transaction.date}</td>
+    <td class="img">
+      <img src="./assets/minus.svg" alt="Remover transação" />
+    </td>
+    `
+
+    return html
   }
 }
+
+DOM.addTransaction(transactions[1]) //Vai pegar os dados do array transactions
 //fim do code Transaçoes
