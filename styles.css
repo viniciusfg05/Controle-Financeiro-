@@ -258,6 +258,7 @@ td.img {
 
   opacity: 0;
   visibility: hidden;
+  z-index: 1;
 }
 
 .modal-overlay.active {
@@ -268,6 +269,8 @@ td.img {
 .modal {
   background: #f0f2f5;
   padding: 2.4rem;
+
+  z-index: 99;
 }
 
 /* ---------Form do modal--------- */
@@ -436,5 +439,10 @@ footer p:hover {
 
   .button.new {
     width: 8rem;
+  }
+
+  footer {
+    position: absolute;
+    bottom: 0;
   }
 }

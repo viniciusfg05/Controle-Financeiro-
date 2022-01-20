@@ -7,33 +7,24 @@ const Modal = {
     document.querySelector('.modal-overlay').classList.remove('active')
   }
 }
+
+const Storage = {
+  get() {
+    return JSON.parse(localStorage.getItem('dev.finances:transactions')) || []
+  },
+  set(transactions) {
+    localStorage.setItem(
+      'dev.finances:transactions',
+      JSON.stringify(transactions)
+    )
+  }
+}
+
 //fim do code modal------------------------------------------------------------------------------------
 
 //Criando uma função que some as entrada e saida e devolva o resultado pra total------------------------------------------------------------------------------------
 const Transaction = {
-  all: [
-    //Inicio - Criando um array com as informaçoes das transações
-    {
-      description: 'Luz',
-      amount: -50000, // se tratando de valores, nao usamos $ , . add somente mais dois zeros
-      date: '23/01/2021'
-    },
-    {
-      description: 'Aluguel',
-      amount: -120000, // se tratando de valores, nao usamos $ , . add somente mais dois zeros
-      date: '23/01/2021'
-    },
-    {
-      description: 'Criação de site',
-      amount: 500000, // se tratando de valores, nao usamos $ , . add somente mais dois zeros
-      date: '23/01/2021'
-    },
-    {
-      description: 'Venda Aplicativo',
-      amount: 2000000, // se tratando de valores, nao usamos $ , . add somente mais dois zeros
-      date: '23/01/2021'
-    }
-  ], //pega todas as transaçoes da linha 13
+  all: Storage.get(),
 
   //add um nova transação
   add(transaction) {
@@ -43,7 +34,7 @@ const Transaction = {
   },
 
   remove(index) {
-    Transaction.all.splice(index, 1) //remove uma transação
+    Transaction.all.splice(index, 1) //remove uma transação // 1 é o numero de transaçoes para apagar
 
     App.reload()
   },
@@ -238,9 +229,9 @@ const App = {
     })
     //FIM - Para pegar cada elemento do transations (arrays)
 
-    //fim do code Transaçoes
-
     DOM.updateBalance()
+
+    Storage.set(Transaction.all) //atualizando o local storage
   },
   reload() {
     //antes do realaoad limpamos o tbody
