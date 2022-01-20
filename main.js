@@ -1,4 +1,4 @@
-//Inicius - Abrindo e fechando modal
+//Inicius - Abrindo e fechando modal------------------------------------------------------------------------------------
 const Modal = {
   open() {
     document.querySelector('.modal-overlay').classList.add('active')
@@ -7,9 +7,9 @@ const Modal = {
     document.querySelector('.modal-overlay').classList.remove('active')
   }
 }
-//fim do code modal
+//fim do code modal------------------------------------------------------------------------------------
 
-//Criando uma função que some as entrada e saida e devolva o resultado pra total
+//Criando uma função que some as entrada e saida e devolva o resultado pra total------------------------------------------------------------------------------------
 const Transaction = {
   all: [
     //Inicio - Criando um array com as informaçoes das transações
@@ -78,8 +78,9 @@ const Transaction = {
     return Transaction.incomes() + Transaction.expenses()
   }
 }
+//FIM - Criando uma função que some as entradas e saídas e devolva os resultado para total------------------------------------------------------------------------------------
 
-//INICIO - Para trocar os dados do html
+//INICIO - Para trocar os dados do html------------------------------------------------------------------------------------
 const DOM = {
   transactionsContainer: document.querySelector('#data-table tbody'), //transactionsContainer:vai pegar o tbody que ta contendo do elemento "tr"
 
@@ -129,10 +130,23 @@ const DOM = {
     DOM.transactionsContainer.innerHTML = ''
   }
 }
-//FIM - Para trocar os dados do html
+//FIM - Para trocar os dados do html---------------------------------------------------------------------
 
 //Inicio -Formatação do numero (valor)
 const Utils = {
+  formatAmount(value) {
+    //formata os valores recebidos
+    value = Number(value) * 100
+
+    return value
+  },
+
+  formatDate(date) {
+    //formata a data, invertendo a posição dela
+    const splittedDate = date.split('-') // remove os - da data
+    return `${splittedDate[2]}/${splittedDate[1]}/${splittedDate[2]}` //ordena as data no formato BRL
+  },
+
   formatCurrency(value) {
     const signal = Number(value) < 0 ? '-' : '' //se o value for um string ele será forçado a ser um Number // se for menor q 0 entao recebe - se nao +
 
@@ -152,13 +166,80 @@ const Utils = {
 }
 //fim -Formatação do numero (valor)
 
+// INICIO - Captura os dados da modal------------------------------------------------------------------------------------
 const Form = {
-  //add o submit="Form.submit(event)" no form
+  //linkando o html com javascript
+  description: document.querySelector('input#description'),
+  amount: document.querySelector('input#amount'),
+  date: document.querySelector('input#date'),
+
+  getValues() {
+    return {
+      description: Form.description.value,
+      amount: Form.amount.value,
+      date: Form.date.value
+    }
+  },
+
+  //para validar os campos
+  validateFields() {
+    const { description, amount, date } = Form.getValues() //desagrupamento buscando somente description amount e date no getValue
+
+    if (
+      description.trim() === '' ||
+      amount.trim() === '' ||
+      date.trim() === ''
+    ) {
+      throw new Error('Por favor, preencha todos os campos')
+    } //trim faz um limpeza dos espaços vazios //estou verificando se decription amount e date está vazio
+    //tentar fazer esse passo, se um deles falhar vai da erro
+    //verificar se todas as inforções fora preencidas
+  },
+
+  formatValue() {
+    let { description, amount, date } = Form.getValues()
+
+    amount = Utils.format(amount)
+
+    date = Utils.formatDate(date)
+
+    return {
+      description,
+      amount,
+      date
+    }
+  },
+  clearFields() {
+    Form.description.value = ''
+    Form.amount.value = ''
+    Form.date.value = ''
+  },
+
   submit(event) {
-    console.log(event)
+    //add o submit="Form.submit(event)" no form
+    event.preventDefault() //deixa padrao as configuraçoes do form
+
+    try {
+      Form.validateFields()
+
+      //formatar os dados para salvar
+      const transaction = Form.formatValue()
+
+      //salvar
+      Transaction.add(transaction)
+
+      //apagar os dados do formulario
+      Form.clearFields()
+
+      //modal fechar
+      Modal.close()
+    } catch (error) {
+      //aq vai captura o erro que o throw emitir
+      alert(error.message)
+    }
   }
 }
-//
+//Fim da captura de dados da modal ------------------------------------------------------------------------------------
 
 const App = {
   //quando add um novo Transaction ele vai da um reload e da um app init fazendo o forEach add a nova transação
