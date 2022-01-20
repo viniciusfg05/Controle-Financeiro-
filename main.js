@@ -39,7 +39,7 @@ const Transaction = {
   add(transaction) {
     Transaction.all.push(transaction)
 
-    App.reload(index)
+    App.reload()
   },
 
   remove(index) {
@@ -88,12 +88,13 @@ const DOM = {
     //transaction, é a const na linha 13 // index, é o nome do arquivo  que ta o HTML
     //local do documento que vai add
     const tr = document.createElement('tr') //criando um elemento "tr"
-    tr.innerHTML = DOM.innerHTMLTransaction(transaction) //"tr.innerHTML" para receber o HTML "innerHTMLTransaction() e "innerHTMLTransaction(transaction)" recebe transaction tb
+    tr.innerHTML = DOM.innerHTMLTransaction(transaction, index) //"tr.innerHTML" para receber o HTML "innerHTMLTransaction() e "innerHTMLTransaction(transaction)" recebe transaction tb
+    tr.dataset.index = index
 
     DOM.transactionsContainer.appendChild(tr) // appendChild(tr) é um funcionabilidade para pegar o elemento que foi criando "tr"
   },
 
-  innerHTMLTransaction(transaction) {
+  innerHTMLTransaction(transaction, index) {
     const CSSclass = transaction.amount > 0 ? 'income' : 'expense' //se o valor for maior que 0 ele add income se ñ add expense
 
     const amount = Utils.formatCurrency(transaction.amount) // pegar a função da linha 85 trandormando o valor em moeda
@@ -103,7 +104,7 @@ const DOM = {
     <td class="${CSSclass}">${amount}</td>
     <td class="date">${transaction.date}</td>
     <td class="img">
-      <img src="./assets/minus.svg" alt="Remover transação" />
+      <img onclick="Transaction.remove(${index})" src="./assets/minus.svg" alt="Remover transação" />
     </td>
     `
 
@@ -144,7 +145,7 @@ const Utils = {
   formatDate(date) {
     //formata a data, invertendo a posição dela
     const splittedDate = date.split('-') // remove os - da data
-    return `${splittedDate[2]}/${splittedDate[1]}/${splittedDate[2]}` //ordena as data no formato BRL
+    return `${splittedDate[2]}/${splittedDate[1]}/${splittedDate[0]}` //ordena as data no formato BRL
   },
 
   formatCurrency(value) {
@@ -180,8 +181,6 @@ const Form = {
       date: Form.date.value
     }
   },
-
-  //para validar os campos
   validateFields() {
     const { description, amount, date } = Form.getValues() //desagrupamento buscando somente description amount e date no getValue
 
@@ -195,12 +194,9 @@ const Form = {
     //tentar fazer esse passo, se um deles falhar vai da erro
     //verificar se todas as inforções fora preencidas
   },
-
   formatValue() {
     let { description, amount, date } = Form.getValues()
-
-    amount = Utils.format(amount)
-
+    amount = Utils.formatAmount(amount)
     date = Utils.formatDate(date)
 
     return {
@@ -220,22 +216,13 @@ const Form = {
     event.preventDefault() //deixa padrao as configuraçoes do form
 
     try {
-      Form.validateFields()
-
-      //formatar os dados para salvar
-      const transaction = Form.formatValue()
-
-      //salvar
-      Transaction.add(transaction)
-
-      //apagar os dados do formulario
-      Form.clearFields()
-
-      //modal fechar
-      Modal.close()
+      Form.validateFields() //Verifica se os campos estao vazios
+      const transaction = Form.formatValue() //formatar os dados para salvar
+      Transaction.add(transaction) //salvar
+      Form.clearFields() //apagar os dados do formulario
+      Modal.close() //modal fechar
     } catch (error) {
-      //aq vai captura o erro que o throw emitir
-      alert(error.message)
+      alert(error.message) //aq vai captura o erro que o throw emitir
     }
   }
 }
@@ -245,9 +232,9 @@ const App = {
   //quando add um novo Transaction ele vai da um reload e da um app init fazendo o forEach add a nova transação
   init() {
     //INICIO - Para pegar cada elemento do transations (arrays)
-    Transaction.all.forEach(transaction => {
+    Transaction.all.forEach((transaction, index) => {
       //forEach pega cada elemento do array joga no transactio(html) //
-      DOM.addTransaction(transaction)
+      DOM.addTransaction(transaction, index)
     })
     //FIM - Para pegar cada elemento do transations (arrays)
 
